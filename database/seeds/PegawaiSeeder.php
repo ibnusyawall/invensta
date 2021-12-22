@@ -15,11 +15,9 @@ class PegawaiSeeder extends Seeder
             [
                 'id' => 1,
                 'nama_pegawai' => 'Fajar Gunadi',
-                'username' => 'fajar',
-                'password' => bcrypt('fajar'),
                 'alamat' => 'Jl. Banjarsari - Pangandaran, Dsn. Nagrak, Banjarsari, Ciamis.',
                 'nip' => '123456789102345678',
-//                'petugas_id' => 3
+                'petugas_id' => 3
             ],
         ];
 

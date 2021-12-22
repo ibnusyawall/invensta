@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DetailPinjamnSeeder extends Seeder
+class DetailPinjamSeeder extends Seeder
 {
     /**
      * Run the database seeds.

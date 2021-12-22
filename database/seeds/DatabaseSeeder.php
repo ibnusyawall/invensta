@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             InventarisSeeder::class,
             PegawaiSeeder::class,
             PeminjamanSeeder::class,
-            DetailPinjamnSeeder::class
+            DetailPinjamSeeder::class
         ];
 
         $this->call($dbseed);

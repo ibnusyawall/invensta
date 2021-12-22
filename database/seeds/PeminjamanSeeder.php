@@ -16,7 +16,7 @@ class PeminjamanSeeder extends Seeder
                 'id' => 1,
                 'tanggal_pinjam' => '2021-12-01 09:20:42',
                 'tanggal_kembali' => '2021-12-02 09:20:42',
-                'status_peminjaman' => 'kembali',
+                'status_peminjaman' => 'waitlist',
                 'pegawai_id' => 1
             ],
             [
