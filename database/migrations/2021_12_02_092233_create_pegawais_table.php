@@ -15,13 +15,11 @@ class CreatePegawaisTable extends Migration
     {
         Schema::create('pegawais', function (Blueprint $table) {
             $table->foreignId('id')->primary();
-            $table->string('username');
-            $table->string('password');
             $table->char('nip', 18);
             $table->string('nama_pegawai');
             $table->text('alamat');
             $table->rememberToken();
-            //$table->foreignId('petugas_id');
+            $table->foreignId('petugas_id');
             $table->timestamps();
         });
     }

@@ -14,11 +14,11 @@ class AddRelasiPegawaisTable extends Migration
     public function up()
     {
         Schema::table('pegawais', function (Blueprint $table) {
-            /*$table->foreign('petugas_id')
+            $table->foreign('petugas_id')
                 ->references('id')
                 ->on('petugas')
                 ->onUpdate('cascade')
-                ->onDelete('cascade');*/
+                ->onDelete('cascade');
         });
     }
 
