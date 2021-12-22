@@ -15,7 +15,7 @@ class CreatePeminjamenTable extends Migration
     {
         Schema::create('peminjamen', function (Blueprint $table) {
             $table->foreignId('id')->primary();
-            $table->enum('status_peminjaman', ['pinjam', 'kembali']);
+            $table->enum('status_peminjaman', ['waitlist', 'acc', 'reject', 'pinjam', 'kembali']);
             $table->dateTime('tanggal_pinjam');
             $table->dateTime('tanggal_kembali');
             $table->foreignId('pegawai_id');
