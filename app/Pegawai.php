@@ -28,6 +28,11 @@ class pegawai extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function petugas()
+    {
+        return $this->belongsTo('App\Petugas');
+    }
+
     public function peminjaman()
     {
         return $this->hasMany('App\Peminjaman');

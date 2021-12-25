@@ -38,4 +38,9 @@ class Petugas extends Authenticatable
     {
         return $this->hasMany('App\Inventaris');
     }
+
+    public function pegawai()
+    {
+        return $this->hasMany('App\Pegawai');
+    }
 }
