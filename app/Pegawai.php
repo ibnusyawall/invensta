@@ -16,7 +16,7 @@ class pegawai extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id', 'nama_pegawai', 'username', 'nip', 'alamat',
+        'id', 'nama_pegawai', 'username', 'nip', 'alamat', 'petugas_id', 
     ];
 
     /**
