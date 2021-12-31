@@ -16,7 +16,7 @@
   <link href="{{ asset('css/app.css') }}">
 </head>
 
-<body>
+<body class="sidebar-gone">
   <div id="app">
       <app></app>
   </div>

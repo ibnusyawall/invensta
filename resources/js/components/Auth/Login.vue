@@ -17,9 +17,9 @@
                             <div class="card-body">
                                 <form @submit.prevent="login">
                                     <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input aria-describedby="emailHelpBlock" id="email" type="email" class="form-control" tabindex="1" placeholder="email address" autofocus>
-                                       
+                                        <label for="username">Username</label>
+                                        <input aria-describedby="emailHelpBlock" id="username" type="text" class="form-control" tabindex="1" placeholder="masukan username" autofocus>
+
                                     </div>
 
                                     <div class="form-group">
@@ -32,7 +32,7 @@
                                             </div>
                                        </div>
                                        <input aria-describedby="passwordHelpBlock" id="password" type="password" class="form-control" tabindex="2" placeholder="Your account password">
-                                       
+
                                     </div>
 
 
@@ -59,16 +59,33 @@
 </template>
 
 <script>
+    import axios from 'axios'
     export default {
         data() {
             return {
                brand: 'INVENSTA',
+               form: {
+                   username: null,
+                   password: null
+               },
+               errors: null
             }
         },
+        beforeMount() {
+            this.check()
+        },
+
         methods: {
             login() {
-                
-            }
+                this.$store.dispatch('login', this.form)
+                    .then()
+            },
+            check() {
+                axios.get('/api/user')
+                    .then(res => {
+                        console.log(res?.data)
+                    }).catch(e => console.log(e?.response.status))
+            },
         }
     }
 </script>
