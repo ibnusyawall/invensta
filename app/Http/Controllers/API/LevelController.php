@@ -32,9 +32,9 @@ class LevelController extends BaseController
      */
     public function index()
     {
-        $d = ['pegawai' => Auth::guard('pegawai')->user()];
+        $d = ['pegawai' => Auth::user()];
         $data = Level::all();
-        return $this->sendResponse(true, $data, $d);
+        return $this->sendResponse(true, $data);
     }
 
     /**
