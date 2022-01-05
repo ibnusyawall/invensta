@@ -1,7 +1,9 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg main-navbar">
-      <form class="form-inline mr-auto">
+    <div class="navbar-bg"></div>
+    <nav class="navbar fixed-top navbar-expand-lg main-navbar">
+      <span class="mr-auto">{{ brand }}</span>
+      <!--<form class="form-inline mr-auto">
         <ul class="navbar-nav mr-3">
           <li>
             <a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"
@@ -50,7 +52,7 @@
                 <img
                   class="mr-3 rounded"
                   width="30"
-                  src="assets/img/products/product-3-50.png"
+                  src="/stisla/img/products/product-3-50.png"
                   alt="product"
                 />
                 oPhone S9 Limited Edition
@@ -61,7 +63,7 @@
                 <img
                   class="mr-3 rounded"
                   width="30"
-                  src="assets/img/products/product-2-50.png"
+                  src="/stisla/img/products/product-2-50.png"
                   alt="product"
                 />
                 Drone X2 New Gen-7
@@ -72,7 +74,7 @@
                 <img
                   class="mr-3 rounded"
                   width="30"
-                  src="assets/img/products/product-1-50.png"
+                  src="/stisla/img/products/product-1-50.png"
                   alt="product"
                 />
                 Headphone Blitz
@@ -97,7 +99,7 @@
             </div>
           </div>
         </div>
-      </form>
+      </form>-->
       <ul class="navbar-nav navbar-right">
         <li class="dropdown dropdown-list-toggle">
           <a
@@ -118,7 +120,7 @@
                 <div class="dropdown-item-avatar">
                   <img
                     alt="image"
-                    src="assets/img/avatar/avatar-1.png"
+                    src="/stisla/img/avatar/avatar-1.png"
                     class="rounded-circle"
                   />
                   <div class="is-online"></div>
@@ -133,7 +135,7 @@
                 <div class="dropdown-item-avatar">
                   <img
                     alt="image"
-                    src="assets/img/avatar/avatar-2.png"
+                    src="/stisla/img/avatar/avatar-2.png"
                     class="rounded-circle"
                   />
                 </div>
@@ -149,7 +151,7 @@
                 <div class="dropdown-item-avatar">
                   <img
                     alt="image"
-                    src="assets/img/avatar/avatar-3.png"
+                    src="/stisla/img/avatar/avatar-3.png"
                     class="rounded-circle"
                   />
                   <div class="is-online"></div>
@@ -167,7 +169,7 @@
                 <div class="dropdown-item-avatar">
                   <img
                     alt="image"
-                    src="assets/img/avatar/avatar-4.png"
+                    src="/stisla/img/avatar/avatar-4.png"
                     class="rounded-circle"
                   />
                 </div>
@@ -184,7 +186,7 @@
                 <div class="dropdown-item-avatar">
                   <img
                     alt="image"
-                    src="assets/img/avatar/avatar-5.png"
+                    src="/stisla/img/avatar/avatar-5.png"
                     class="rounded-circle"
                   />
                 </div>
@@ -277,7 +279,7 @@
           >
             <img
               alt="image"
-              src="assets/img/avatar/avatar-1.png"
+              src="/stisla/img/avatar/avatar-1.png"
               class="rounded-circle mr-1"
             />
             <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div></a
@@ -305,3 +307,9 @@
     </nav>
   </div>
 </template>
+
+<script>
+    export default {
+        props: ['brand'],
+    }
+</script>
