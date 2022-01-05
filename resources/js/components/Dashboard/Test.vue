@@ -6,6 +6,7 @@
             </template>
             <template v-slot:content>
                 <p>Hello World!</p>
+                <pre>{{ user }}</pre>
             </template>
         </Dashboard>
     </div>
@@ -14,6 +15,7 @@
 <script>
 import Dashboard from './Dashboard'
 export default {
+    props: ['user'],
     data() {
         return {
 

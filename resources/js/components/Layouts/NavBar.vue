@@ -298,9 +298,9 @@
               <i class="fas fa-cog"></i> Settings
             </a>
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item has-icon text-danger">
+            <div v-on:click="logout" class="dropdown-item has-icon text-danger">
               <i class="fas fa-sign-out-alt"></i> Logout
-            </a>
+            </div>
           </div>
         </li>
       </ul>
@@ -311,5 +311,10 @@
 <script>
     export default {
         props: ['brand'],
+        methods: {
+            logout() {
+                this.$store.dispatch('logout')
+            }
+        }
     }
 </script>
