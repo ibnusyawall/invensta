@@ -1,15 +1,26 @@
 <template>
     <div>
-        <h1>Hello World!</h1>
+        <Dashboard>
+            <template v-slot:section-header>
+                <h1>Selamat siang!</h1>
+            </template>
+            <template v-slot:content>
+                <p>Hello World!</p>
+            </template>
+        </Dashboard>
     </div>
 </template>
 
 <script>
+import Dashboard from './Dashboard'
 export default {
     data() {
         return {
 
         }
+    },
+    components: {
+        Dashboard
     }
 }
 </script>

@@ -1,17 +1,18 @@
 <template>
   <div>
       <template >
-{{ user }}
       </template>
-      <router-view></router-view>
+      <router-view :brand="brand"></router-view>
   </div>
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
+    import { mapState } from 'vuex'
     export default {
         computed: {
-            ...mapGetters(['isLoggedIn','user'])
+            ...mapState({
+                brand: state => state.brand
+            }),
         },
         mounted() {
             console.log('Component mounted.')

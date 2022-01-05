@@ -11,6 +11,12 @@
                             {{ iziToast('') }}
                         </div>-->
 
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert" v-if="isError">
+                            {{ errors[0] }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close" v-on:click="close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
                         <div class="card card-primary">
                             <div class="card-header"><h4>Login</h4></div>
 
@@ -18,8 +24,12 @@
                                 <form @submit.prevent="login">
                                     <div class="form-group">
                                         <label for="username">Username</label>
-                                        <input aria-describedby="emailHelpBlock" id="username" type="text" class="form-control" tabindex="1" placeholder="masukan username" autofocus>
-
+                                        <ValidationProvider rules="required|min:4" v-slot="{ errors }">
+                                            <input aria-describedby="emailHelpBlock" v-model="form.username" id="username" type="text" :class="errors.length ? 'form-control is-invalid' : 'form-control'" tabindex="1" placeholder="masukan username" autofocus>
+                                            <div class="invalid-feedback">
+                                                {{ errors[0] }}
+                                            </div>
+                                        </ValidationProvider>
                                     </div>
 
                                     <div class="form-group">
@@ -31,25 +41,28 @@
                                                </a>
                                             </div>
                                        </div>
-                                       <input aria-describedby="passwordHelpBlock" id="password" type="password" class="form-control" tabindex="2" placeholder="Your account password">
-
+                                       <ValidationProvider rules="required|min:4" v-slot="{ errors }">
+                                           <input aria-describedby="passwordHelpBlock" v-model="form.password" id="password" type="password" :class="errors.length ? 'form-control is-invalid' : 'form-control'" tabindex="2" placeholder="Your account password">
+                                           <div class="invalid-feedback">
+                                                {{ errors[0] }}
+                                           </div>
+                                       </ValidationProvider>
                                     </div>
 
 
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4" >
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4" :disabled="!form.username || !form.password">
                                             Login
                                         </button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-
                         <div class="mt-5 text-muted text-center">
-                            Don't have an account?
+                            <router-link to="/pegawai/login">Masuk sebagai Pegawai</router-link>
                         </div>
                         <div class="simple-footer">
-                            Copyright &copy; {{ brand }} 2021
+                            Copyright &copy; {{ brand }} {{ year }}
                         </div>
                     </div>
                 </div>
@@ -59,33 +72,37 @@
 </template>
 
 <script>
-    import axios from 'axios'
+    import { ValidationProvider } from 'vee-validate'
+    import { mapActions, mapState, mapGetters } from 'vuex'
     export default {
+        props: ['brand'],
         data() {
             return {
-               brand: 'INVENSTA',
                form: {
-                   username: null,
-                   password: null
+                   username: '',
+                   password: ''
                },
-               errors: null
+               year: new Date().getFullYear()
             }
         },
-        beforeMount() {
-            this.check()
+        computed: {
+            ...mapState({
+                example: state => state.auth.example,
+                errors: state => state.auth.errors,
+                isError: state => state.auth.isError
+            }),
+            ...mapGetters(['get_state', 'user'])
         },
-
         methods: {
-            login() {
-                this.$store.dispatch('login', this.form)
-                    .then()
+            async login() {
+                await this.$store.dispatch('login', this.form)
             },
-            check() {
-                axios.get('/api/user')
-                    .then(res => {
-                        console.log(res?.data)
-                    }).catch(e => console.log(e?.response.status))
-            },
+            close() {
+                this.$store.dispatch('close')
+            }
+        },
+        components: {
+            ValidationProvider
         }
     }
 </script>
