@@ -8,7 +8,7 @@ import NotFound from "./../pages/NotFoundPage.vue";
 
 const Login = () => import(/* webpackChunkName: "common" */ "./../pages/Auth/Login.vue");
 const LoginPegawai = () => import(/* webpackChunkName: "common" */ "./../pages/Auth/Pegawai/Login.vue");
-
+const Profile = () => import(/* webpackChunkName: "common" */ "./../pages/Profile.vue");
 const routes = [
     {
           name: 'login',
@@ -28,7 +28,19 @@ const routes = [
           children: [
               ...Admin,
               ...Operator,
-              ...Pegawai
+              ...Pegawai,
+              {
+                  name: 'profile',
+                  path: 'profile',
+                  component: Profile,
+                  meta: {
+                      requireAuth: true
+                  }
+              },
+              {
+                    path: "*",
+                    component: NotFound
+              },
           ],
           meta: { requireAuth: true }
     },
